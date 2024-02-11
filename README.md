@@ -1,6 +1,6 @@
 # Conditional Tip
 
-This mod extends Tips Mod.
+This mod extends [Tips](https://www.curseforge.com/minecraft/mc-mods/tips).
 
 ## Requirements
 

@@ -83,15 +83,15 @@ public class ConditionalTip extends SimpleTip {
                 // Check advancement
                 AdvancementList advs = player.connection.getAdvancements().getAdvancements();
                 Map<Advancement, AdvancementProgress> progressMap = player.connection.getAdvancements().progress;
-                if (advancements.isPresent() && advancements.get().stream().anyMatch((ad) -> {
-                    AdvancementProgress p = progressMap.get(advs.get(ad));
-                    return p == null || !p.isDone();
+                if (advancements.isPresent() && !advancements.get().stream().anyMatch((id) -> {
+                    AdvancementProgress p = progressMap.get(advs.get(id));
+                    return p != null && p.isDone();
                 })) {
                     return false;
                 }
-                if (unarchivedAdvancements.isPresent() && unarchivedAdvancements.get().stream().anyMatch((ad) -> {
-                    AdvancementProgress p = progressMap.get(advs.get(ad));
-                    return p == null || p.isDone();
+                if (unarchivedAdvancements.isPresent() && !unarchivedAdvancements.get().stream().anyMatch((id) -> {
+                    AdvancementProgress p = progressMap.get(advs.get(id));
+                    return p == null || !p.isDone();
                 })) {
                     return false;
                 }
